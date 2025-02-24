@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useRef } from 'react'
 import './App.css'
+
+
 
 function App() {
   const [poke, setPoke] = useState([])
@@ -8,6 +11,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [firstDone, setFirstDone] = useState(false);
   const [secondDone, setSecondDone] = useState(false);
+  const [displayPokemon, setDisplayPokemon] = useState(false);
+  const [chosenPokemon, setChosenPokemon] = useState(0);
+  const typeDiv = useRef(null);
 
   const fetchData = async () => {
     let res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
@@ -62,7 +68,14 @@ function App() {
       <figure>
           <img src="${imageUrl}" alt="${pokeName}">
       </figure>
-      <h3>${pokeName}</h3>`;
+      <h3>${pokeName}</h3>
+      `;
+
+      resultArticle.addEventListener("click", function() {
+        setChosenPokemon(pokemon.id)
+        setDisplayPokemon(true)
+        
+      })
       //  Adds the result card to the result container
       resultsContainer.appendChild(resultArticle);
     });
@@ -78,13 +91,49 @@ function App() {
     )
   }
 
+  <a href="./App.jsx">Home</a>
+  
+
+  if(displayPokemon){
+    
+    let displayPokemonHTML = (
+      <> 
+      <aside >
+        <div style={{ textAlign: 'center' }}>
+          <a href="./App.jsx"><h1>Home</h1></a>
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <h1> Pokedex Generation 1 </h1>
+        </div>
+        <div>
+          <img src={pokeData[chosenPokemon - 1].sprites.front_default} />
+          <h2>{pokeData[chosenPokemon - 1 ].name}</h2>
+          <div ref={typeDiv}>
+            <h2>{pokeData[chosenPokemon - 1 ].types[0].type.name}</h2>
+          </div>
+        </div>
+        </aside>
+      </>
+    )
+    
+    console.log(displayPokemonHTML.props.children.props.children[2].props.children[2].props.children.props)
+    for(let i of pokeData[chosenPokemon -1].types){
+      var type = document.createElement("h2")
+      type.textContent = i
+    }
+    //props.children.props.children[2].props.children[2].props.children.props
+
+    
+
+    return displayPokemonHTML
+  }
+
   return (
     <>
       <div>
         <h1>PokeMANS</h1>
-        {
-          console.log(pokeData[0])
-        }
+        <h1>Pokedex Generation 1</h1>
+        
 
         <section id="results"></section>
         
@@ -94,30 +143,6 @@ function App() {
   )
 }
 
-{/* <section id="results"></section> */}
-// const resultsContainer = document.getElementById("results");
-// Resets the search results container with a fresh empty string
-// resultsContainer.innerHTML = "";
- // Loops through each card object in the array and processes them individually
-//  data.data.forEach(card => {
-//   // Checks if card has an image. Returns the normal sized image if true or placeholder if false
-//   const imageUrl = card.image_uris ? card.image_uris.normal : "https://via.placeholder.com/200";
-//   const cardName = card.name;
-//   // Adds the description or returns a placeholder
-//   const description = card.oracle_text || "No description available.";
-//   // Creates article element for each card
-//   const resultArticle = document.createElement("article");
-// Configures the display of each card
-// resultArticle.innerHTML = `
-// <figure>
-//     <img src="${imageUrl}" alt="${cardName}">
-// </figure>
-// <h3>${cardName}</h3>
-// <p>${description}</p>
-// 
-// `;
- // Adds the result card to the result container
-//  resultsContainer.appendChild(resultArticle);
-//   });
+
 
 export default App
