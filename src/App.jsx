@@ -6,6 +6,7 @@ import './App.css'
 
 
 function App() {
+  
   const [poke, setPoke] = useState([])
   const [pokeData, setPokeData] = useState([])
   const [loading, setLoading] = useState(false);
@@ -13,7 +14,6 @@ function App() {
   const [secondDone, setSecondDone] = useState(false);
   const [displayPokemon, setDisplayPokemon] = useState(false);
   const [chosenPokemon, setChosenPokemon] = useState(0);
-  const typeDiv = useRef(null);
 
   const fetchData = async () => {
     let res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
@@ -21,7 +21,6 @@ function App() {
     setPoke(data) 
     setFirstDone(true);
   }
-  
 
   // First effect
   useEffect(() => {
@@ -79,16 +78,15 @@ function App() {
       resultsContainer.appendChild(resultArticle);
     });
 
+    
     setLoading(false)
+    
+    
   }
 
-  if (loading){
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    )
-  }
+
+
+  
 
   
   
@@ -111,12 +109,12 @@ function App() {
       <> 
         <div id="header">
           <h1 id="header"> Pokedex Generation 1 </h1>
-          <a id = "link" href="./App.jsx"><h3>Home</h3></a>
+          <a id ="link" href="./App.jsx"><h3 id="link">Back</h3></a>
         </div>
         <aside >
-          <div id="singleContaier">
+          <div id="singleContanier">
             <div id="singlePokemon">
-              <h2 id="name">{pokeData[chosenPokemon - 1 ].name}</h2>
+              <h2 id="name">{(pokeData[chosenPokemon - 1 ].name)}</h2>
               <img id="singlePicture" src={pokeData[chosenPokemon - 1].sprites.front_default} />
               <div id="types">
                 <h3>Types</h3>
@@ -139,27 +137,35 @@ function App() {
         </aside>
       </>
     )
-    
-   
-    
-    //props.children.props.children[2].props.children[2].props.children.props
-
-    
 
     return displayPokemonHTML
   }
 
+  if (loading){
+    return (
+      <div>
+        <h1 id="Loading">Loading...</h1>
+      </div>
+    )
+  }
   return (
     <>
+    <header><h1 id="title">PokeMANS</h1></header>
       <div>
-        <h1 id="title">PokeMANS</h1>
-        <h1 id="sub-title">Pokedex Generation 1</h1>
-        <h2 id="instruction">Click on a Pokemon to see more information</h2>
-
-        <section id="results"></section>
-        
-        
+        <div id="titleDiv">
+          <h1 id="sub-title">Pokedex Generation 1</h1>
+          <h2 id="instruction">Click on a Pokemon to see more information</h2>
+        </div>
+      <div className="main-container fade-in">
+        {/* Add Pokeball Image Here */}
+        <img src="/public/pokeball_361998.png" alt="Pokeball" className="pokeball-image" />
       </div>
+        <section id="results"></section>
+      </div>
+        
+      
+        
+      
     </>
   )
 }
