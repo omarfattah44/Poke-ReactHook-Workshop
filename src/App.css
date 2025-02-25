@@ -1,6 +1,5 @@
 body {
   background: #ff8716b6;
-  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -9,17 +8,35 @@ body {
   align-items: center;
 }
 
-h1{
+title {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   max-width: fit-content;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgb(152, 4, 4);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.726);
 }
+sub-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: fit-content;
+  padding: 10px;
+  background: rgb(152, 4, 4);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.726);
+}
+
 article {
   border: 2px solid #ffffff;
   padding: 10px;
@@ -39,16 +56,19 @@ article:hover{
 
 article img {
   width: 200px;
-  height: 200px;
+  /* height: 100px; */
   display: block;
-  margin: 0 auto;
+  margin: 10px -35px;
 }
 
 article h3 {
   font-size: 1.5em;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-decoration: underline;
+  text-transform: uppercase;
   margin: 10px 0;
+  color: #333;
+  text-shadow: 1px 1px 2px rgb(248, 247, 247);
 }
 
 
@@ -57,16 +77,73 @@ section {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 20px;
 }
 
 aside {
   
   display: flex;
-  justify-content: center;
+  justify-content: left;
 
   margin-top: 20px;
   padding: 10px;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.726);}
+
+
+
+
+
+
+  /* ------ single pokemon -------- */
+
+  #singleContainer{
+    display: flex;
+    
+  }
+
+
+  #singlePicture{
+    justify-self: left;
+    min-height: 200px;
+  }
+
+  #name{
+    font-size: 400%;
+    margin: 0px;
+  }
+
+  #types ul{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #moves
+
+  #link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: fit-content;
+    max-height: 20px;
+    padding: 10px;
+    background: rgb(152, 4, 4);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.726);
+  }
+
+  /* #root{
+    margin: 0px;
+    min-height: max-content;
+    min-width: max-content;
+  } */
+
+  #header{
+    justify-content: flex-start;
+  }

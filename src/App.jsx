@@ -56,7 +56,6 @@ function App() {
   function pokeCard(){
     const resultsContainer = document.getElementById("results");
     pokeData.forEach(pokemon => {
-      console.log("forEach looper")
       // Checks if card has an image. Returns the normal sized image if true or placeholder if false
       // Adds the description or returns a placeholder
       const imageUrl = pokemon.sprites.front_default;
@@ -91,36 +90,58 @@ function App() {
     )
   }
 
-  <a href="./App.jsx">Home</a>
+  
   
 
   if(displayPokemon){
+
+    var typeArry = [];
+    for(let i of pokeData[chosenPokemon -1].types){
+      typeArry.push(i.type.name)
+    }
+
+    var moveArry = [];
+    for(let i of pokeData[chosenPokemon -1].moves){
+      moveArry.push(i.move.name)
+    }
+
+    console.log(moveArry)
     
     let displayPokemonHTML = (
       <> 
-      <aside >
-        <div style={{ textAlign: 'center' }}>
-          <a href="./App.jsx"><h1>Home</h1></a>
+        <div id="header">
+          <h1 id="header"> Pokedex Generation 1 </h1>
+          <a id = "link" href="./App.jsx"><h3>Home</h3></a>
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <h1> Pokedex Generation 1 </h1>
-        </div>
-        <div>
-          <img src={pokeData[chosenPokemon - 1].sprites.front_default} />
-          <h2>{pokeData[chosenPokemon - 1 ].name}</h2>
-          <div ref={typeDiv}>
-            <h2>{pokeData[chosenPokemon - 1 ].types[0].type.name}</h2>
+        <aside >
+          <div id="singleContaier">
+            <div id="singlePokemon">
+              <h2 id="name">{pokeData[chosenPokemon - 1 ].name}</h2>
+              <img id="singlePicture" src={pokeData[chosenPokemon - 1].sprites.front_default} />
+              <div id="types">
+                <h3>Types</h3>
+                <ul>
+                {typeArry.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+                </ul>
+              </div>
+            </div>
+            <div id="moves">
+              <h3>Moves</h3>
+              <ul>
+                {moveArry.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
         </aside>
       </>
     )
     
-    console.log(displayPokemonHTML.props.children.props.children[2].props.children[2].props.children.props)
-    for(let i of pokeData[chosenPokemon -1].types){
-      var type = document.createElement("h2")
-      type.textContent = i
-    }
+   
+    
     //props.children.props.children[2].props.children[2].props.children.props
 
     
@@ -131,9 +152,9 @@ function App() {
   return (
     <>
       <div>
-        <h1>PokeMANS</h1>
-        <h1>Pokedex Generation 1</h1>
-        
+        <h1 id="title">PokeMANS</h1>
+        <h1 id="sub-title">Pokedex Generation 1</h1>
+        <h2 id="instruction">Click on a Pokemon to see more information</h2>
 
         <section id="results"></section>
         
