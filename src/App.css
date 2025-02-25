@@ -1,6 +1,10 @@
 
 body {
-  background: #ff8716b6;
+  background:linear-gradient(rgba(255, 128, 1, 0.916), rgba(239, 212, 7, 0.7)) ;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
   /* min-height: 100vh; */
@@ -13,8 +17,8 @@ body {
   height: auto;
   display: block;
   margin: 20px auto;
-  margin-top: 150px;
-  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 @keyframes dropIn {
   from {
@@ -35,7 +39,6 @@ body {
 
 .pokeball-image:hover {
   animation: spin 1s linear infinite;
-  animation : dropIn 1s ease-in-out;
 }
 #loading {
   display: flex;
@@ -72,11 +75,19 @@ body {
 #header {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 100%;
-  margin-top: 100px;
+  width: 934px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 20px;
+  color:#ffffff;
+  font-size: 2em;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
+  background: rgb(255, 233, 35);
+  border-radius: 5px;
+  /* border: 2px solid #ffffff; */
 }
 
 #title {
@@ -84,8 +95,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100%;
-  padding: 20px;
+  width: 100;
   background: rgb(152, 4, 4);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 7em;
@@ -96,13 +106,12 @@ body {
   position: relative;
   top: 0;
   margin-top: 0;
-  padding-top: 100px;
+  padding-top: 20px;
 }
 
 #sub-title {
   display: flex;
   justify-content: center;
-  margin-left: 1025px;
   align-items: center;
   text-align: center;
   max-width: fit-content;
@@ -118,13 +127,12 @@ body {
 }
 #instruction{
   display: flex;
-  margin-left: 1050px;
   justify-content: center;
   align-items: center;
   text-align: center;
   max-width: fit-content;
   padding: 10px;
-  background: rgba(6, 0, 0, 0.913);
+  background: rgb(4, 38, 152);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #ffffff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
@@ -181,11 +189,12 @@ section {
 aside {
   
   display: flex;
-  justify-content: left;
+  justify-content: center;
 
   margin-top: 20px;
   padding: 10px;
   background: rgba(0, 0, 0, 0.1);
+  background-color: rgb(174, 7, 7);
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.726);
 
@@ -197,7 +206,6 @@ aside {
 /* Fade-in animation for smooth appearance */
   #singleContainer{
     display: flex;
-    
   }
   /* .slide-in {
     animation: slideIn 0.5s ease-in-out;
@@ -210,45 +218,76 @@ aside {
   
  
   } */
-
-  #singlePicture{
-    justify-self: left;
-    min-height: 200px;
+#singlePicture{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  background: rgb(255, 233, 35);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 5px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.726);
+    /* min-height: 200px; */
   }
 
   #name{
-    font-size: 400%;
+    font-size: 4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
     margin: 0px;
+    text-align: center;
   }
+#types h3{
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color:white;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  margin: 0px;
+  text-align: center;
+}
 
   #types ul{
     display: flex;
     justify-content: space-around;
+    font-size: 2em;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
   }
 
-  #moves
+  #moves {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
+  }
 
   #link{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     max-width: fit-content;
     max-height: 20px;
     padding: 10px;
-    background: rgb(152, 4, 4);
+    background: rgb(4, 38, 152);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ffffff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.726);
     border-radius: 5px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.726);
+    font-size: 1em;
   }
 
-  /* #root{
-    margin: 0px;
-    min-height: max-content;
-    min-width: max-content;
-  } */
 
-  #header{
-    justify-content: flex-start;
-  }
+

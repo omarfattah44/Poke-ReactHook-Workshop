@@ -84,7 +84,7 @@ h3{
 
 #singlePicture{
   justify-self: center;
-  min-height: 500px;
+  min-height: 300px;
 }
 
 #singleContainer{
@@ -102,7 +102,10 @@ aside{
   justify-content: center;
   width: 100%;
   padding: 20px;
+
 }
+
+
 
 #sub-title{
   width: 100vw;
@@ -115,12 +118,11 @@ ul{
     -webkit-column-count: 3;
     -webkit-column-gap: 20px;
     column-count: 3;
-    column-gap: 20px;
+    column-gap: 50px;
 }
 
 #titleDiv{
   min-width: 100vw;
   justify-self: center;
   justify-items: center;
-  margin-left: -1100px;
 }
